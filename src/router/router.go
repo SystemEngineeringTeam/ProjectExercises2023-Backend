@@ -5,6 +5,7 @@ import (
 	"os"
 	"time"
 
+	"github.com/SystemEngineeringTeam/ProjectExercises2023-Backend/controller"
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 
@@ -50,7 +51,7 @@ func Init() {
 
 	// V1の設定
 	v1 := router.Group("/api/v1/")
-	// v1.GET("/staycount/get/", controller.StayCountGet)
+	v1.GET("/start", controller.GameStart)
 
 	// 下記を追記することで`http://localhost:8080/api/v1/swagger/index.html`を叩くことでswagger uiを開くことができる
 	v1.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerfiles.Handler))
