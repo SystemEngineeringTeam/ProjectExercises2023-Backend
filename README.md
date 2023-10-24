@@ -1,9 +1,15 @@
 麻雀センシングのバックエンド
 ===
 
-# mysqlを実行させる場合
+# 環境構築
+## mysqlを実行させる場合
 ```bash
 $ docker-compose up -d
+```
+
+## GoのModuleをダウンロードする
+```bash
+$ go mod tidy
 ```
 
 # Goの実行
