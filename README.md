@@ -9,12 +9,13 @@ $ docker-compose up -d
 
 ## GoのModuleをダウンロードする
 ```bash
+$ cd ./src
 $ go mod tidy
 ```
 
 # Goの実行
 ```bash
-$ cd backend/src
+$ cd ./src
 $ go run main.go
 ```
 
