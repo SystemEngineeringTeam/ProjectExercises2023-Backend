@@ -9,5 +9,7 @@ var db = lib.SqlConnect()
 
 // テーブル作成
 func CreateAllTable() {
-	// db.AutoMigrate(&Building{})
+	db.AutoMigrate(&BoardSurface{})
+	db.AutoMigrate(&HeartRateData{})
+	db.AutoMigrate(&UsersStatus{})
 }
