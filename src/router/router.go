@@ -1,6 +1,7 @@
 package router
 
 import (
+	"fmt"
 	"io"
 	"os"
 	"time"
@@ -51,9 +52,21 @@ func Init() {
 
 	// V1の設定
 	v1 := router.Group("/api/v1/")
-	v1.GET("/start", controller.GameStart)
 
+	//ゲーム開始
+	v1.GET("/start", controller.GameStart)
+	//ゲーム終了
 	v1.GET("/finish", controller.GameFinish)
+	//心拍数の送信
+	azimuths := [...]string{
+		"north", //北
+		"south", //南
+		"east",  //東
+		"west",  //西
+	}
+	for _, azimuth := range azimuths {
+		v1.GET(fmt.Sprintf("set_bpm/%s", azimuth), controller.SendHeartRate)
+	}
 
 	// 下記を追記することで`http://localhost:8080/api/v1/swagger/index.html`を叩くことでswagger uiを開くことができる
 	v1.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerfiles.Handler))
