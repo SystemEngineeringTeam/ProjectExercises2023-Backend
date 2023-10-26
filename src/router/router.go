@@ -53,6 +53,8 @@ func Init() {
 	v1 := router.Group("/api/v1/")
 	v1.GET("/start", controller.GameStart)
 
+	v1.GET("/finish", controller.GameFinish)
+
 	// 下記を追記することで`http://localhost:8080/api/v1/swagger/index.html`を叩くことでswagger uiを開くことができる
 	v1.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerfiles.Handler))
 

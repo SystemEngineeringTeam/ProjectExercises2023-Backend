@@ -24,3 +24,23 @@ func CreateBoardSurface(boardSurface *BoardSurface) {
 	}
 	fmt.Println("boardSurface created!!", boardSurface)
 }
+
+// GetLatestBoardSurface 最新のBoardSurfaceを取得する
+func GetLatestBoardSurface() BoardSurface {
+	// 最新のboardSurfaceを取得する
+	targetBoardSurface := BoardSurface{}
+	db.Last(&targetBoardSurface) //代入
+
+	//返却
+	return targetBoardSurface
+}
+
+func UpdateBoardSurface(boardSurface *BoardSurface) {
+
+	//finishTimeを上書き
+	result := db.Save(&boardSurface)
+	if result.Error != nil {
+		log.Fatal(result.Error)
+	}
+	fmt.Println("boardSurface updated!!", boardSurface)
+}

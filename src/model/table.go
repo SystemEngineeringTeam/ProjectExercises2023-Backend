@@ -4,6 +4,10 @@ import (
 	"github.com/SystemEngineeringTeam/ProjectExercises2023-Backend/lib"
 )
 
+/**
+テーブル作成するやつ
+*/
+
 // MYSQLの接続情報
 var db = lib.SqlConnect()
 

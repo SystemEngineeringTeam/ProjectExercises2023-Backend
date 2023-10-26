@@ -28,3 +28,16 @@ URL: http://localhost:8080/api/v1/swagger/index.html
 ```bash
 $ swag init
 ```
+# 動作確認
+## ゲーム開始
+http://localhost:8080/api/v1/start/
+
+## ゲーム終了
+http://localhost:8080/api/v1/finish/
+
+# MySQLモニタの立ち上げ
+```bash
+$ cd ./src
+$ docker exec -it mahjong_sensing_DB bash
+$ mysql -u root -p
+```

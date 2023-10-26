@@ -5,9 +5,13 @@
  - using code:	gin.SetMode(gin.ReleaseMode)
 
 [GIN-debug] GET    /api/v1/start             --> github.com/SystemEngineeringTeam/ProjectExercises2023-Backend/controller.GameStart (4 handlers)
+[GIN-debug] GET    /api/v1/finish            --> github.com/SystemEngineeringTeam/ProjectExercises2023-Backend/controller.GameFinish (4 handlers)
 [GIN-debug] GET    /api/v1/swagger/*any      --> github.com/swaggo/gin-swagger.CustomWrapHandler.func1 (4 handlers)
 [GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
 Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
 [GIN-debug] Listening and serving HTTP on :8080
-[GIN-debug] redirecting request 301: /api/v1/start --> /api/v1/start
-[GIN] 2023/10/24 - 17:09:04 | 200 |   13.693042ms |       127.0.0.1 | GET      "/api/v1/start"
+[GIN] 2023/10/26 - 14:26:05 | 200 |   27.642334ms |             ::1 | GET      "/api/v1/start"
+[GIN] 2023/10/26 - 14:26:12 | 200 |   22.548667ms |             ::1 | GET      "/api/v1/finish"
+[GIN] 2023/10/26 - 14:26:59 | 200 |   27.221875ms |             ::1 | GET      "/api/v1/start"
+[GIN] 2023/10/26 - 14:27:02 | 200 |   24.609917ms |             ::1 | GET      "/api/v1/start"
+[GIN] 2023/10/26 - 14:27:05 | 200 |   25.728833ms |             ::1 | GET      "/api/v1/finish"
