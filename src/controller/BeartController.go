@@ -1,6 +1,7 @@
 package controller
 
 import (
+	"fmt"
 	"github.com/SystemEngineeringTeam/ProjectExercises2023-Backend/model"
 	"github.com/gin-gonic/gin"
 	"math/rand"
@@ -41,6 +42,8 @@ func GameFinish(c *gin.Context) {
 
 // SendHeartRate 心拍数を送る
 func SendHeartRate(c *gin.Context) {
+	//URLから方位を取り出す
+	targetAzimuth := c.Param("azimuth")
 	//各方位
 	azimuths := [...]string{
 		"north", //北
@@ -48,10 +51,25 @@ func SendHeartRate(c *gin.Context) {
 		"east",  //東
 		"west",  //西
 	}
+
+	fmt.Println(targetAzimuth)
+
+	//4方位以外の文字例が入っていないかチェック
+	for i, azimuth := range azimuths {
+		//一致するときfor文を抜ける
+		if targetAzimuth == azimuth {
+			break
+		}
+		//最後まで一致しなかったとき関数を終了する
+		if i == len(azimuth)-1 {
+			return
+		}
+	}
+
 	req := model.HeartRateData{
 		Time:      time.Now(),
-		Azimuth:   azimuths[rand.Intn(4)],
-		HeartRate: rand.Intn(100),
+		Azimuth:   targetAzimuth,
+		HeartRate: rand.Intn(100), //適当
 	}
 
 	// データベースにデータを挿入
