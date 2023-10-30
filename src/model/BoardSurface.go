@@ -13,8 +13,8 @@ type BoardSurface struct {
 	Id             uint            `json:"id" gorm:"primaryKey"`
 	StartTime      time.Time       `json:"start_time"`
 	FinishTime     time.Time       `json:"finish_time"`
-	HeartRateDates []HeartRateData `gorm:"foreignKey:HeartRateId"`
-	UsersStatuses  []UsersStatus   `gorm:"foreignKey:UsersStatusId"`
+	HeartRateDates []HeartRateData `gorm:"foreignKey:BoardSurfaceId"`
+	UsersStatuses  []UsersStatus   `gorm:"foreignKey:BoardSurfaceId"`
 }
 
 func CreateBoardSurface(boardSurface *BoardSurface) {
@@ -36,11 +36,20 @@ func GetLatestBoardSurface() BoardSurface {
 }
 
 func UpdateBoardSurface(boardSurface *BoardSurface) {
-
 	//finishTimeを上書き
 	result := db.Save(&boardSurface)
 	if result.Error != nil {
 		log.Fatal(result.Error)
 	}
 	fmt.Println("boardSurface updated!!", boardSurface)
+}
+
+// GetLastBoardId 最後のBoardIdを取得する
+func GetLastBoardId() uint {
+	// 最新のboardSurfaceを取得する
+	targetBoardSurface := BoardSurface{}
+	db.Last(&targetBoardSurface) //代入
+
+	//返却
+	return targetBoardSurface.Id
 }

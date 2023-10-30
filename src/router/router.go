@@ -53,11 +53,14 @@ func Init() {
 	v1 := router.Group("/api/v1/")
 
 	//ゲーム開始
-	v1.GET("/start", controller.GameStart)
+	v1.POST("/start", controller.GameStart)
 	//ゲーム終了
-	v1.GET("/finish", controller.GameFinish)
+	v1.POST("/finish", controller.GameFinish)
+	//TODO: 開始と終了の間ではない部分のPOSTは無視するようにする
 	//心拍数の送信
-	v1.GET("set_bpm/:azimuth", controller.SendHeartRate)
+	v1.POST("/set_bpm/:azimuth", controller.SendHeartRate)
+	//心拍数の取得(最新の1つの心拍数)
+	v1.GET("/get_bpm/:azimuth", controller.GetHeartRate)
 
 	// 下記を追記することで`http://localhost:8080/api/v1/swagger/index.html`を叩くことでswagger uiを開くことができる
 	v1.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerfiles.Handler))
