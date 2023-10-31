@@ -11,7 +11,7 @@ type HeartRateData struct {
 	BoardSurfaceId uint      `json:"board_surface_id"`
 	Time           time.Time `json:"time"`
 	Azimuth        string    `json:"azimuth"`
-	HeartRate      int       `json:"heart_rate"`
+	HeartRate      int       `json:"bpm"`
 }
 
 // CreateHeartRateData DB上に新規作成
@@ -23,11 +23,17 @@ func CreateHeartRateData(heartRateData *HeartRateData) {
 	fmt.Println("heartRateData created!!", heartRateData)
 }
 
-func GetHeartRateData() HeartRateData {
+// GetHeartRateData 最新のHeartRateDataを取得する
+func GetHeartRateData(azimuth string) HeartRateData {
 	// 最新のHeartRateDataを取得する
 	targetHeartRateData := HeartRateData{}
-	db.Last(&targetHeartRateData) //代入
+	//db.Last(&targetHeartRateData) //代入
 
+	//最新のBoardSurfaceIdを取得
+	boardId := GetLastBoardId()
+
+	//BoardSurfaceIdとazimuthが一致するものを取得
+	db.Where("board_surface_id = ? AND azimuth = ?", boardId, azimuth).Last(&targetHeartRateData)
 	//返却
 	return targetHeartRateData
 }

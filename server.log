@@ -8,23 +8,16 @@
 [GIN-debug] POST   /api/v1/finish            --> github.com/SystemEngineeringTeam/ProjectExercises2023-Backend/controller.GameFinish (4 handlers)
 [GIN-debug] POST   /api/v1/set_bpm/:azimuth  --> github.com/SystemEngineeringTeam/ProjectExercises2023-Backend/controller.SendHeartRate (4 handlers)
 [GIN-debug] GET    /api/v1/get_bpm/:azimuth  --> github.com/SystemEngineeringTeam/ProjectExercises2023-Backend/controller.GetHeartRate (4 handlers)
+[GIN-debug] POST   /api/v1/set/user_status/:azimuth --> github.com/SystemEngineeringTeam/ProjectExercises2023-Backend/controller.SendEmotionStatus (4 handlers)
+[GIN-debug] GET    /api/v1/get/user_status/:azimuth --> github.com/SystemEngineeringTeam/ProjectExercises2023-Backend/controller.GetEmotionStatus (4 handlers)
 [GIN-debug] GET    /api/v1/swagger/*any      --> github.com/swaggo/gin-swagger.CustomWrapHandler.func1 (4 handlers)
 [GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
 Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
 [GIN-debug] Listening and serving HTTP on :8080
-[GIN] 2023/10/30 - 20:04:06 | 200 |       4.083µs |             ::1 | POST     "/api/v1/set_bpm/:azimuth"
-[GIN] 2023/10/30 - 20:04:12 | 200 |   22.759584ms |             ::1 | POST     "/api/v1/start"
-[GIN] 2023/10/30 - 20:04:18 | 200 |       3.041µs |             ::1 | POST     "/api/v1/set_bpm/:azimuth"
-[GIN] 2023/10/30 - 20:04:53 | 200 |   22.189458ms |             ::1 | POST     "/api/v1/set_bpm/north"
-[GIN] 2023/10/30 - 20:08:14 | 200 |   40.185125ms |             ::1 | POST     "/api/v1/set_bpm/north"
-[GIN] 2023/10/30 - 20:10:02 | 404 |       1.833µs |             ::1 | GET      "/api/v1/set_bpm/south"
-[GIN] 2023/10/30 - 20:10:08 | 404 |       2.459µs |             ::1 | GET      "/api/v1/set_bpm/east"
-[GIN] 2023/10/30 - 20:10:13 | 404 |       1.542µs |             ::1 | GET      "/api/v1/set_bpm/west"
-[GIN] 2023/10/30 - 20:10:44 | 200 |   18.756875ms |             ::1 | POST     "/api/v1/set_bpm/east"
-[GIN] 2023/10/30 - 20:10:47 | 200 |    22.29425ms |             ::1 | POST     "/api/v1/set_bpm/west"
-[GIN] 2023/10/30 - 20:10:50 | 200 |   14.478625ms |             ::1 | POST     "/api/v1/set_bpm/south"
-[GIN] 2023/10/30 - 20:10:53 | 200 |   15.954333ms |             ::1 | POST     "/api/v1/set_bpm/north"
-[GIN] 2023/10/30 - 20:10:57 | 200 |   16.002166ms |             ::1 | POST     "/api/v1/finish"
-[GIN] 2023/10/30 - 20:13:36 | 200 |   24.757458ms |             ::1 | POST     "/api/v1/start"
-[GIN] 2023/10/30 - 20:13:42 | 200 |   18.586041ms |             ::1 | POST     "/api/v1/set_bpm/north"
-[GIN] 2023/10/30 - 20:14:10 | 200 |   17.488542ms |             ::1 | POST     "/api/v1/finish"
+[GIN] 2023/10/31 - 15:56:08 | 200 |   15.747042ms |             ::1 | POST     "/api/v1/start"
+[GIN] 2023/10/31 - 15:56:15 | 200 |    17.15575ms |             ::1 | POST     "/api/v1/set_bpm/north"
+[GIN] 2023/10/31 - 15:56:19 | 200 |    5.599292ms |             ::1 | GET      "/api/v1/get_bpm/north"
+[GIN] 2023/10/31 - 15:56:22 | 200 |   16.398042ms |             ::1 | POST     "/api/v1/set_bpm/south"
+[GIN] 2023/10/31 - 15:56:24 | 200 |   13.144833ms |             ::1 | GET      "/api/v1/get_bpm/south"
+[GIN] 2023/10/31 - 15:56:27 | 200 |    6.428666ms |             ::1 | GET      "/api/v1/get_bpm/north"
+[GIN] 2023/10/31 - 15:56:30 | 200 |    5.801375ms |             ::1 | GET      "/api/v1/get_bpm/south"
