@@ -51,7 +51,20 @@ func Init() {
 
 	// V1の設定
 	v1 := router.Group("/api/v1/")
-	v1.GET("/start", controller.GameStart)
+
+	//ゲーム開始
+	v1.POST("/start", controller.GameStart)
+	//ゲーム終了
+	v1.POST("/finish", controller.GameFinish)
+	//TODO: データがないときに取得したらエラーを返すようにする
+	//最新の心拍数の送信
+	v1.POST("/set_bpm/:azimuth", controller.SendHeartRate)
+	//最新の心拍数の取得
+	v1.GET("/get_bpm/:azimuth", controller.GetHeartRate)
+	//最新の心情の送信
+	v1.POST("/set/user_status/:azimuth", controller.SendEmotionStatus)
+	//最新の心情の取得
+	v1.GET("/get/user_status/:azimuth", controller.GetEmotionStatus)
 
 	// 下記を追記することで`http://localhost:8080/api/v1/swagger/index.html`を叩くことでswagger uiを開くことができる
 	v1.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerfiles.Handler))

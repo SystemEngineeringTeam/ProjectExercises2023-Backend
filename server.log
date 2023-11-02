@@ -4,10 +4,30 @@
  - using env:	export GIN_MODE=release
  - using code:	gin.SetMode(gin.ReleaseMode)
 
-[GIN-debug] GET    /api/v1/start             --> github.com/SystemEngineeringTeam/ProjectExercises2023-Backend/controller.GameStart (4 handlers)
+[GIN-debug] POST   /api/v1/start             --> github.com/SystemEngineeringTeam/ProjectExercises2023-Backend/controller.GameStart (4 handlers)
+[GIN-debug] POST   /api/v1/finish            --> github.com/SystemEngineeringTeam/ProjectExercises2023-Backend/controller.GameFinish (4 handlers)
+[GIN-debug] POST   /api/v1/set_bpm/:azimuth  --> github.com/SystemEngineeringTeam/ProjectExercises2023-Backend/controller.SendHeartRate (4 handlers)
+[GIN-debug] GET    /api/v1/get_bpm/:azimuth  --> github.com/SystemEngineeringTeam/ProjectExercises2023-Backend/controller.GetHeartRate (4 handlers)
+[GIN-debug] POST   /api/v1/set/user_status/:azimuth --> github.com/SystemEngineeringTeam/ProjectExercises2023-Backend/controller.SendEmotionStatus (4 handlers)
+[GIN-debug] GET    /api/v1/get/user_status/:azimuth --> github.com/SystemEngineeringTeam/ProjectExercises2023-Backend/controller.GetEmotionStatus (4 handlers)
 [GIN-debug] GET    /api/v1/swagger/*any      --> github.com/swaggo/gin-swagger.CustomWrapHandler.func1 (4 handlers)
 [GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
 Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
 [GIN-debug] Listening and serving HTTP on :8080
-[GIN-debug] redirecting request 301: /api/v1/start --> /api/v1/start
-[GIN] 2023/10/24 - 17:09:04 | 200 |   13.693042ms |       127.0.0.1 | GET      "/api/v1/start"
+[GIN] 2023/11/02 - 14:24:59 | 400 |    2.965708ms |             ::1 | POST     "/api/v1/start"
+[GIN] 2023/11/02 - 14:25:07 | 200 |   24.258666ms |             ::1 | POST     "/api/v1/finish"
+[GIN] 2023/11/02 - 14:25:09 | 200 |   18.715667ms |             ::1 | POST     "/api/v1/start"
+[GIN] 2023/11/02 - 14:25:14 | 400 |   11.640333ms |             ::1 | GET      "/api/v1/get/user_status/east"
+[GIN] 2023/11/02 - 14:25:18 | 400 |   13.484833ms |             ::1 | GET      "/api/v1/get_bpm/south"
+[GIN] 2023/11/02 - 14:25:22 | 400 |      10.634ms |             ::1 | GET      "/api/v1/get_bpm/north"
+[GIN] 2023/11/02 - 14:25:24 | 400 |     9.44625ms |             ::1 | GET      "/api/v1/get_bpm/east"
+[GIN] 2023/11/02 - 14:25:31 | 200 |   16.486791ms |             ::1 | POST     "/api/v1/set_bpm/east"
+[GIN] 2023/11/02 - 14:25:44 | 200 |   10.676333ms |             ::1 | GET      "/api/v1/get_bpm/east"
+[GIN] 2023/11/02 - 14:26:11 | 200 |      28.437ms |             ::1 | POST     "/api/v1/set_bpm/north"
+[GIN] 2023/11/02 - 14:26:15 | 200 |   10.607416ms |             ::1 | GET      "/api/v1/get_bpm/north"
+[GIN] 2023/11/02 - 14:26:17 | 400 |    6.804792ms |             ::1 | GET      "/api/v1/get/user_status/south"
+[GIN] 2023/11/02 - 14:30:41 | 200 |   23.784083ms |             ::1 | POST     "/api/v1/set/user_status/south"
+[GIN] 2023/11/02 - 14:30:45 | 200 |    7.520375ms |             ::1 | GET      "/api/v1/get/user_status/south"
+[GIN] 2023/11/02 - 14:30:51 | 200 |   20.126875ms |             ::1 | POST     "/api/v1/finish"
+[GIN] 2023/11/02 - 14:30:54 | 400 |    2.900917ms |             ::1 | GET      "/api/v1/get_bpm/south"
+[GIN] 2023/11/02 - 14:30:56 | 400 |    2.645083ms |             ::1 | GET      "/api/v1/get/user_status/east"
