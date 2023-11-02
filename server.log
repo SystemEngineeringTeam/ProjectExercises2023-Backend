@@ -14,10 +14,13 @@
 [GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
 Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
 [GIN-debug] Listening and serving HTTP on :8080
-[GIN] 2023/10/31 - 15:56:08 | 200 |   15.747042ms |             ::1 | POST     "/api/v1/start"
-[GIN] 2023/10/31 - 15:56:15 | 200 |    17.15575ms |             ::1 | POST     "/api/v1/set_bpm/north"
-[GIN] 2023/10/31 - 15:56:19 | 200 |    5.599292ms |             ::1 | GET      "/api/v1/get_bpm/north"
-[GIN] 2023/10/31 - 15:56:22 | 200 |   16.398042ms |             ::1 | POST     "/api/v1/set_bpm/south"
-[GIN] 2023/10/31 - 15:56:24 | 200 |   13.144833ms |             ::1 | GET      "/api/v1/get_bpm/south"
-[GIN] 2023/10/31 - 15:56:27 | 200 |    6.428666ms |             ::1 | GET      "/api/v1/get_bpm/north"
-[GIN] 2023/10/31 - 15:56:30 | 200 |    5.801375ms |             ::1 | GET      "/api/v1/get_bpm/south"
+[GIN] 2023/11/02 - 12:21:49 | 200 |   29.989708ms |             ::1 | POST     "/api/v1/finish"
+[GIN] 2023/11/02 - 12:21:54 | 200 |   19.690542ms |             ::1 | POST     "/api/v1/start"
+[GIN] 2023/11/02 - 12:21:56 | 400 |     2.51325ms |             ::1 | POST     "/api/v1/start"
+[GIN] 2023/11/02 - 12:22:00 | 200 |   19.629083ms |             ::1 | POST     "/api/v1/finish"
+[GIN] 2023/11/02 - 12:22:01 | 400 |    2.293792ms |             ::1 | POST     "/api/v1/finish"
+[GIN] 2023/11/02 - 12:22:04 | 400 |    3.346084ms |             ::1 | POST     "/api/v1/finish"
+[GIN] 2023/11/02 - 12:22:08 | 200 |   15.134583ms |             ::1 | POST     "/api/v1/start"
+[GIN] 2023/11/02 - 12:22:09 | 400 |    5.015541ms |             ::1 | POST     "/api/v1/start"
+[GIN] 2023/11/02 - 12:22:13 | 200 |   23.622958ms |             ::1 | POST     "/api/v1/finish"
+[GIN] 2023/11/02 - 12:22:14 | 400 |    3.480959ms |             ::1 | POST     "/api/v1/finish"
