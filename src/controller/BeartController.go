@@ -18,14 +18,6 @@ func SendHeartRate(c *gin.Context) {
 		return
 	}
 
-	//URLの方位をチェック
-	if !checkAzimuth(targetAzimuth) {
-		c.JSON(400, gin.H{
-			"message": "不正な方位です",
-		})
-		return
-	}
-
 	req := model.HeartRateData{
 		BoardSurfaceId: model.GetLastBoardId(),
 		Time:           time.Now(),
@@ -57,6 +49,14 @@ func GetHeartRate(c *gin.Context) {
 
 	//最新のBoardSurfaceを取得
 	latestHeartRateData := model.GetHeartRateData(targetAzimuth)
+
+	//2つのidがともに0のとき関数を終了する
+	if latestHeartRateData.BoardSurfaceId == 0 && latestHeartRateData.HeartRateId == 0 {
+		c.JSON(400, gin.H{
+			"message": "データがありません",
+		})
+		return
+	}
 
 	fmt.Println(latestHeartRateData)
 	// データを返す
@@ -112,6 +112,14 @@ func GetEmotionStatus(c *gin.Context) {
 
 	//最新のBoardSurfaceを取得
 	latestUsersStatus := model.GetUsersStatus(targetAzimuth)
+
+	//2つのidがともに0のとき関数を終了する
+	if latestUsersStatus.BoardSurfaceId == 0 && latestUsersStatus.UsersStatusId == 0 {
+		c.JSON(400, gin.H{
+			"message": "データがありません",
+		})
+		return
+	}
 
 	// データを返す
 	c.JSON(200, latestUsersStatus)
