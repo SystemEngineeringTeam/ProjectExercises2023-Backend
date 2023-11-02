@@ -54,21 +54,16 @@ func GetLastBoardId() uint {
 	return targetBoardSurface.Id
 }
 
-// CanGameStart ゲームが開始できる状態か判定する
-func CanGameStart() bool {
+// IsGameContinuing ゲームが継続しているか判定する
+func IsGameContinuing() bool {
 	//最新のBoardSurfaceを取得
 	latestBoardSurface := GetLatestBoardSurface()
 
 	//開始時刻と終了時刻を比較
-	//等しくない場合=>前回のゲームが終了している
-	if !latestBoardSurface.StartTime.Equal(latestBoardSurface.FinishTime) {
-		return true //ゲーム開始ができる状態
+	//等しい場合=>ゲームが継続している
+	if latestBoardSurface.StartTime.Equal(latestBoardSurface.FinishTime) {
+		return true //ゲームが継続している
 	} else {
-		return false
+		return false //ゲームが継続していない
 	}
-}
-
-// CanGameFinish ゲームが終了できる状態か判定する
-func CanGameFinish() bool {
-	return !CanGameStart()
 }

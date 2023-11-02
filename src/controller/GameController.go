@@ -8,8 +8,8 @@ import (
 
 // GameStart ゲームを開始の処理
 func GameStart(c *gin.Context) {
-	//ゲームが開始されている場合
-	if !model.CanGameStart() {
+	//ゲームが継続している場合
+	if model.IsGameContinuing() {
 		c.JSON(400, gin.H{
 			"message": "ゲームはすでに開始されています",
 		})
@@ -34,8 +34,8 @@ func GameStart(c *gin.Context) {
 
 // GameFinish ゲーム終了の処理
 func GameFinish(c *gin.Context) {
-	//ゲームが開始されていない場合
-	if !model.CanGameFinish() {
+	//ゲームが継続していない場合
+	if !model.IsGameContinuing() {
 		c.JSON(400, gin.H{
 			"message": "ゲームはまだ開始されていません",
 		})

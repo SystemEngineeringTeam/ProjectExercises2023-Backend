@@ -56,10 +56,10 @@ func Init() {
 	v1.POST("/start", controller.GameStart)
 	//ゲーム終了
 	v1.POST("/finish", controller.GameFinish)
-	//TODO: 開始と終了の間ではない部分のPOSTは無視するようにする
-	//心拍数の送信
+	//TODO: データがないときに取得したらエラーを返すようにする
+	//最新の心拍数の送信
 	v1.POST("/set_bpm/:azimuth", controller.SendHeartRate)
-	//心拍数の取得(最新の1つの心拍数)
+	//最新の心拍数の取得
 	v1.GET("/get_bpm/:azimuth", controller.GetHeartRate)
 	//最新の心情の送信
 	v1.POST("/set/user_status/:azimuth", controller.SendEmotionStatus)
