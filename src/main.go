@@ -5,9 +5,10 @@ import (
 	"github.com/SystemEngineeringTeam/ProjectExercises2023-Backend/router"
 )
 
-// @title CampusCrowdMonitor
+// @title gin-swagger todos
 // @version 1.0
-// @description このswaggerはCampusCrowdMonitorのapiです
+// @license.name kosuke
+// @description このswaggerはgin-swaggerの見本apiです
 func main() {
 	// テーブル作成とDB接続
 	model.CreateAllTable()

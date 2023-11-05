@@ -1,7 +1,0 @@
-info:
-  contact: {}
-  description: このswaggerはCampusCrowdMonitorのapiです
-  title: CampusCrowdMonitor
-  version: "1.0"
-paths: {}
-swagger: "2.0"

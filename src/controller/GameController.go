@@ -6,7 +6,11 @@ import (
 	"time"
 )
 
-// GameStart ゲームを開始の処理
+// GameStart ゲーム開始の処理
+// @Summary Todo一覧を配列で返す
+// @Produce  json
+// @Success 200 {object} model.BoardSurface
+// @Router /todos [get]
 func GameStart(c *gin.Context) {
 	//ゲームが継続している場合
 	if model.IsGameContinuing() {
