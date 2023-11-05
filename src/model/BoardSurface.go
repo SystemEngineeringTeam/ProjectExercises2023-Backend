@@ -59,6 +59,11 @@ func IsGameContinuing() bool {
 	//最新のBoardSurfaceを取得
 	latestBoardSurface := GetLatestBoardSurface()
 
+	//latestBoardSurfaceの取得に失敗した場合
+	if latestBoardSurface.Id == 0 {
+		return false //ゲームが継続していない
+	}
+
 	//開始時刻と終了時刻を比較
 	//等しい場合=>ゲームが継続している
 	if latestBoardSurface.StartTime.Equal(latestBoardSurface.FinishTime) {

@@ -14,15 +14,6 @@
 [GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
 Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
 [GIN-debug] Listening and serving HTTP on :8080
-[GIN] 2023/11/05 - 20:57:02 | 200 |   32.132417ms |             ::1 | POST     "/api/v1/set/user_status/north?emotion=nervous"
-[GIN] 2023/11/05 - 20:57:04 | 200 |   25.830875ms |             ::1 | POST     "/api/v1/set/user_status/north?emotion=nervous"
-[GIN] 2023/11/05 - 20:57:21 | 200 |   26.087834ms |             ::1 | POST     "/api/v1/set/user_status/west?emotion=nervous"
-[GIN] 2023/11/05 - 20:57:24 | 200 |   19.623042ms |             ::1 | POST     "/api/v1/set/user_status/east?emotion=nervous"
-[GIN] 2023/11/05 - 20:57:26 | 200 |   16.914458ms |             ::1 | POST     "/api/v1/set/user_status/south?emotion=nervous"
-[GIN] 2023/11/05 - 20:57:34 | 200 |   21.269959ms |             ::1 | POST     "/api/v1/set/user_status/south?emotion=nervous"
-[GIN] 2023/11/05 - 20:57:38 | 400 |    3.117709ms |             ::1 | POST     "/api/v1/start"
-[GIN] 2023/11/05 - 20:57:41 | 200 |    23.39675ms |             ::1 | POST     "/api/v1/finish"
-[GIN] 2023/11/05 - 20:57:43 | 400 |    2.205125ms |             ::1 | POST     "/api/v1/set/user_status/south?emotion=nervous"
-[GIN] 2023/11/05 - 20:57:46 | 400 |       5.284ms |             ::1 | POST     "/api/v1/set/user_status/east?emotion=nervous"
-[GIN] 2023/11/05 - 20:57:48 | 200 |   15.968417ms |             ::1 | POST     "/api/v1/start"
-[GIN] 2023/11/05 - 20:57:50 | 200 |       23.69ms |             ::1 | POST     "/api/v1/set/user_status/east?emotion=nervous"
+[GIN] 2023/11/05 - 21:17:22 | 400 |    6.168583ms |             ::1 | POST     "/api/v1/finish"
+[GIN] 2023/11/05 - 21:17:26 | 200 |   26.861208ms |             ::1 | POST     "/api/v1/start"
+[GIN] 2023/11/05 - 21:17:31 | 200 |      22.323ms |             ::1 | POST     "/api/v1/finish"
