@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"github.com/SystemEngineeringTeam/ProjectExercises2023-Backend/model"
 	"github.com/gin-gonic/gin"
-	"math/rand"
+	"strconv"
 	"time"
 )
 
@@ -12,17 +12,30 @@ import (
 func SendHeartRate(c *gin.Context) {
 	//URLから方位を取り出す
 	targetAzimuth := c.Param("azimuth")
+	newBpm := c.Query("bpm") //クエリパラメータ
 
 	//関数実行可能かどうかを判定
 	if !IsExecutable(c, targetAzimuth) {
 		return
 	}
 
+	//newBpmが数値に変換できるかどうかを判定
+	_, err := strconv.Atoi(newBpm)
+	if err != nil {
+		c.JSON(400, gin.H{
+			"message": "不正な値です",
+		})
+		return
+	}
+
+	//newBpmをint型に変換
+	newBpmInt, _ := strconv.Atoi(newBpm)
+
 	req := model.HeartRateData{
 		BoardSurfaceId: model.GetLastBoardId(),
 		Time:           time.Now(),
 		Azimuth:        targetAzimuth,
-		HeartRate:      rand.Intn(100), //適当
+		HeartRate:      newBpmInt,
 	}
 
 	// データベースにデータを挿入
@@ -31,9 +44,10 @@ func SendHeartRate(c *gin.Context) {
 	// データを返す
 	c.JSON(200, gin.H{
 		"BoardSurfaceId": req.BoardSurfaceId,
+		"HeartRateId":    req.HeartRateId,
 		"time":           req.Time,
 		"Azimuth":        req.Azimuth,
-		"HeartRate":      req.HeartRateId,
+		"HeartRate":      req.HeartRate,
 	})
 }
 
@@ -67,6 +81,7 @@ func GetHeartRate(c *gin.Context) {
 func SendEmotionStatus(c *gin.Context) {
 	//URLから方位を取り出す
 	targetAzimuth := c.Param("azimuth")
+	newEmotion := c.Query("emotion")
 
 	//関数実行可能かどうかを判定
 	if !IsExecutable(c, targetAzimuth) {
@@ -74,18 +89,18 @@ func SendEmotionStatus(c *gin.Context) {
 	}
 
 	//感情
-	emotions := [...]string{
-		"normal",   //平常
-		"surprise", //驚愕
-		"nervous",  //緊張
-		"relief",   //安堵
-	}
+	//emotions := [...]string{
+	//	"normal",   //平常
+	//	"surprise", //驚愕
+	//	"nervous",  //緊張
+	//	"relief",   //安堵
+	//}
 
 	req := model.UsersStatus{
 		BoardSurfaceId: model.GetLastBoardId(),
 		Time:           time.Now(),
 		Azimuth:        targetAzimuth,
-		Status:         emotions[rand.Intn(4)], //適当
+		Status:         newEmotion,
 	}
 
 	// データベースにデータを挿入
@@ -94,6 +109,7 @@ func SendEmotionStatus(c *gin.Context) {
 	// データを返す
 	c.JSON(200, gin.H{
 		"BoardSurfaceId": req.BoardSurfaceId,
+		"UsersStatusId":  req.UsersStatusId,
 		"time":           req.Time,
 		"Azimuth":        req.Azimuth,
 		"Status":         req.Status,
