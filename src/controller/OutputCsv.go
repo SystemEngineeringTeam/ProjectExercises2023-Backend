@@ -51,7 +51,7 @@ func BeartOutput(azimuth string, boardId int) {
 	w := csv.NewWriter(file)
 
 	// データを書き込む
-	w.Write([]string{"time", "heartRate"})
+	w.Write([]string{"time", "bpm"})
 	for _, v := range heartRateList {
 		w.Write([]string{strconv.FormatInt(v.Time.Unix(),10), strconv.Itoa(v.HeartRate)})
 	}
