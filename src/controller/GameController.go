@@ -63,6 +63,6 @@ func GameFinish(c *gin.Context) {
 	// データを返す
 	c.JSON(200, gin.H{
 		"FinishTime": latestBoardSurface.FinishTime,
-		"url":        "http://localhost:8080/api/v1/get/image/" + strconv.Itoa(int(model.GetLastBoardId())),
+		"url":        "http://heartbeat.sysken.net/api/v1/get/image/" + strconv.Itoa(int(model.GetLastBoardId())),
 	})
 }
