@@ -52,6 +52,10 @@ func GameFinish(c *gin.Context) {
 	// データベースにデータを挿入
 	model.UpdateBoardSurface(&latestBoardSurface)
 
+	// データをCSVに出力
+	AllBeartOutput()
+	AllUserStatusOutput()
+
 	// データを返す
 	c.JSON(200, gin.H{
 		"FinishTime": latestBoardSurface.FinishTime,

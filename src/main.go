@@ -10,8 +10,12 @@ import (
 // @license.name kosuke
 // @description このswaggerはgin-swaggerの見本apiです
 func main() {
+	// controller.AddCsvData()
+
 	// テーブル作成とDB接続
 	model.CreateAllTable()
+
 	// ルーティングの設定＋サーバー起動
 	router.Init()
+
 }

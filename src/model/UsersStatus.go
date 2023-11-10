@@ -37,3 +37,16 @@ func GetUsersStatus(azimuth string) UsersStatus {
 	//返却
 	return targetUsersStatus
 }
+
+func GetAllUsersStatus(azimuth string) []UsersStatus {
+	// 最新のHeartRateDataを取得する
+	var targetUsersStatus []UsersStatus
+
+	//最新のBoardSurfaceIdを取得
+	boardId := GetLastBoardId()
+
+	//BoardSurfaceIdとazimuthが一致するものを取得
+	db.Where("board_surface_id = ? AND azimuth = ?", boardId, azimuth).Find(&targetUsersStatus)
+	//返却
+	return targetUsersStatus
+}

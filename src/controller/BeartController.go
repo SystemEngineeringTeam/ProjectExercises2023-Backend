@@ -2,10 +2,11 @@ package controller
 
 import (
 	"fmt"
-	"github.com/SystemEngineeringTeam/ProjectExercises2023-Backend/model"
-	"github.com/gin-gonic/gin"
 	"strconv"
 	"time"
+
+	"github.com/SystemEngineeringTeam/ProjectExercises2023-Backend/model"
+	"github.com/gin-gonic/gin"
 )
 
 // SendHeartRate 心拍数を送る
@@ -40,6 +41,9 @@ func SendHeartRate(c *gin.Context) {
 
 	// データベースにデータを挿入
 	model.CreateHeartRateData(&req)
+
+	// 心情を更新
+	CheckEmotionStatus(targetAzimuth)
 
 	// データを返す
 	c.JSON(200, gin.H{
@@ -187,4 +191,24 @@ func IsExecutable(c *gin.Context, targetAzimuth string) bool {
 
 	//関数実行可能
 	return true
+}
+
+// CheckEmotionStatus 心情を更新する
+func CheckEmotionStatus(azimuth string) {
+	// 最新のBoardSurfaceに紐づくHeartRateDataを取得
+	heartRateData := model.GetLast2HeartRateData(azimuth)
+
+	// 最新のBoardSurfaceに紐づくUsersStatusを取得
+	emotions := CheckEmotion(heartRateData)
+
+	// 最新のBoardSurfaceに紐づくUsersStatusを更新
+	if len(heartRateData) == 2 {
+		northUserStatus := model.UsersStatus{
+			BoardSurfaceId: model.GetLastBoardId(),
+			Time:           heartRateData[1].Time,
+			Azimuth:        azimuth,
+			Status:         emotions,
+		}
+		model.CreateUsersStatus(&northUserStatus)
+	}
 }
