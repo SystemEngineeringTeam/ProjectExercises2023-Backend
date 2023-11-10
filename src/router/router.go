@@ -65,6 +65,8 @@ func Init() {
 	v1.POST("/set/user_status/:azimuth", controller.SendEmotionStatus)
 	//最新の心情の取得
 	v1.GET("/get/user_status/:azimuth", controller.GetEmotionStatus)
+	//画像を返す
+	v1.GET("/get/image/:imageID", controller.HandlerImage)
 
 	// 下記を追記することで`http://localhost:8080/api/v1/swagger/index.html`を叩くことでswagger uiを開くことができる
 	v1.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerfiles.Handler))
