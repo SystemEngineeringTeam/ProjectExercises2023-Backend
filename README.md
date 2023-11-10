@@ -9,14 +9,23 @@ $ docker-compose up -d
 
 ## GoのModuleをダウンロードする
 ```bash
-$ cd ./src
 $ go mod tidy
 ```
 
 # Goの実行
 ```bash
-$ cd ./src
-$ go run main.go
+$ go run ./main.go
+```
+
+# pythonでグラフを作成する方法
+
+基本的には、Go側から自動的に呼び出されるが、手動で実験するための方法である。
+CSVのデータを`output_csv`に保存する。
+main.pyの後についている番号はボードIDである
+
+```bash
+$ cd ./python_src
+$ python ./main.py 3
 ```
 
 # swaggerの確認

@@ -5,7 +5,7 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/SystemEngineeringTeam/ProjectExercises2023-Backend/model"
+	"github.com/SystemEngineeringTeam/ProjectExercises2023-Backend/src/model"
 	"github.com/gin-gonic/gin"
 )
 
