@@ -3,6 +3,7 @@ package controller
 import (
 	"github.com/SystemEngineeringTeam/ProjectExercises2023-Backend/model"
 	"github.com/gin-gonic/gin"
+	"strconv"
 	"time"
 )
 
@@ -56,8 +57,11 @@ func GameFinish(c *gin.Context) {
 	AllBeartOutput()
 	AllUserStatusOutput()
 
+	GenerateGraph(strconv.Itoa(int(model.GetLastBoardId())))
+
 	// データを返す
 	c.JSON(200, gin.H{
 		"FinishTime": latestBoardSurface.FinishTime,
+		"url":        "http://localhost:8080/api/v1/get/image/" + strconv.Itoa(int(model.GetLastBoardId())),
 	})
 }

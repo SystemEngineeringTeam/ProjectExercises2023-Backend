@@ -1,7 +1,10 @@
 import sys
 
-from python_src.presenter.GenerateGraphPresenter import GenerateGraphPresenter
 
+# controllerフォルダの中に入っているGenerateGraphPresenterをimportする。
+# このとき、controllerフォルダの中に__init__.pyを作成しておく必要がある。
+# __init__.pyを作らない場合は、controller.GenerateGraphPresenterと書く必要がある。
+import GenerateGraphPresenter as GGP
 
 def main():
     args = sys.argv
@@ -12,7 +15,7 @@ def main():
         print('boardIdを指定してください')
         return
 
-    generateGraphPresenter = GenerateGraphPresenter(boardId)
+    generateGraphPresenter = GGP.GenerateGraphPresenter(boardId)
     generateGraphPresenter.generateGraph()
     print("success")
 

@@ -33,10 +33,10 @@ func AllUserStatusOutput() {
 func BeartOutput(azimuth string, boardId int) {
 
 	//ディレクトリの作成
-	path := "../output_csv/" + strconv.Itoa(boardId) + "/" + azimuth + "_bpm" + ".csv"
+	path := "./output_csv/" + strconv.Itoa(boardId) + "/" + azimuth + "_bpm" + ".csv"
 
 	//mkdir "
-	CreateDirectory("../output_csv/" + strconv.Itoa(boardId))
+	CreateDirectory("./output_csv/" + strconv.Itoa(boardId))
 
 	// データを取得
 	heartRateList := model.GetAllHeartRateData(azimuth)
@@ -53,7 +53,7 @@ func BeartOutput(azimuth string, boardId int) {
 	// データを書き込む
 	w.Write([]string{"time", "bpm"})
 	for _, v := range heartRateList {
-		w.Write([]string{strconv.FormatInt(v.Time.Unix(),10), strconv.Itoa(v.HeartRate)})
+		w.Write([]string{strconv.FormatInt(v.Time.Unix(), 10), strconv.Itoa(v.HeartRate)})
 	}
 	w.Flush()
 	fmt.Println("CSV出力完了")
@@ -61,10 +61,10 @@ func BeartOutput(azimuth string, boardId int) {
 
 func UserStatusOutput(azimuth string, boardId int) {
 	//ディレクトリの作成
-	path := "../output_csv/" + strconv.Itoa(boardId) + "/" + azimuth + "_emotion" + ".csv"
+	path := "./output_csv/" + strconv.Itoa(boardId) + "/" + azimuth + "_emotion" + ".csv"
 
 	//mkdir "
-	CreateDirectory("../output_csv/" + strconv.Itoa(boardId))
+	CreateDirectory("./output_csv/" + strconv.Itoa(boardId))
 
 	// データを取得
 	userStatusList := model.GetAllUsersStatus(azimuth)
@@ -81,7 +81,7 @@ func UserStatusOutput(azimuth string, boardId int) {
 	// データを書き込む
 	w.Write([]string{"time", "status"})
 	for _, v := range userStatusList {
-		w.Write([]string{strconv.FormatInt(v.Time.Unix(),10), v.Status})
+		w.Write([]string{strconv.FormatInt(v.Time.Unix(), 10), v.Status})
 	}
 	w.Flush()
 	fmt.Println("CSV出力完了")

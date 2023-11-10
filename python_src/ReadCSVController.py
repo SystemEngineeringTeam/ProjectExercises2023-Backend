@@ -9,7 +9,7 @@ from typing import List
 class ReadCSVController:
 
     def __init__(self):
-        self.path = "../output_csv/"
+        self.path = "./output_csv"
 
     def getBpmDf(self, board_id: int) -> List[pd.DataFrame]:
         folder_name = self.path + "/" + str(board_id)

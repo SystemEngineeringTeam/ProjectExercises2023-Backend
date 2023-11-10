@@ -9,7 +9,7 @@ from typing import List
 class GraphController:
 
     def __init__(self):
-        self.path = "../output_image/"
+        self.path = "./output_image/"
 
     """
     グラフを作成する

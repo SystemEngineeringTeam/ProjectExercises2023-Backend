@@ -2,18 +2,17 @@ from typing import List
 
 import pandas as pd
 
-from python_src.controller.GraphController import GraphController
-from python_src.controller.ReadCSVController import ReadCSVController
-from python_src.controller.SensingController import SensingController
-
+import GraphController as GC
+import ReadCSVController as RCC
+import SensingController as SC
 
 class GenerateGraphPresenter:
 
     def __init__(self, boardId: int):
         self.boardId = boardId
-        self.readCSVController = ReadCSVController()
-        self.graphController = GraphController()
-        self.sensingController = SensingController()
+        self.readCSVController = RCC.ReadCSVController()
+        self.graphController = GC.GraphController()
+        self.sensingController = SC.SensingController()
 
     def diff(self, df_list: List[pd.DataFrame]) -> List[pd.DataFrame]:
         df_diff_list = []
