@@ -2,11 +2,12 @@ package controller
 
 import (
 	"fmt"
-	"github.com/SystemEngineeringTeam/ProjectExercises2023-Backend/model"
-	"github.com/go-gota/gota/dataframe"
 	"log"
 	"os"
 	"time"
+
+	"github.com/SystemEngineeringTeam/ProjectExercises2023-Backend/src/model"
+	"github.com/go-gota/gota/dataframe"
 )
 
 func CheckEmotion(list []model.HeartRateData) string {
@@ -16,12 +17,12 @@ func CheckEmotion(list []model.HeartRateData) string {
 	fmt.Println("bpmList（差分）")
 	fmt.Println(diff)
 
-	// ここから感情判定 
+	// ここから感情判定
 	//"normal",   //平常 1未満,-1より大きい
 	// "surprise", //驚愕  1以上,
 	// "relief",   //安堵 -1以下,
 
-	if(len(list) <= 1) {
+	if len(list) <= 1 {
 		return "normal"
 	}
 
@@ -82,11 +83,11 @@ func AddCsvData() {
 		bpm := int(df.Subset(i).Elem(0, 1).Float())
 		fmt.Println(bpm)
 
-		time := int64(df.Subset(i).Elem(0, 0).Float()/1000)
+		time := int64(df.Subset(i).Elem(0, 0).Float() / 1000)
 		fmt.Println(time)
 
 		date := unixTime2Time(time)
-		
+
 		list = append(list, model.HeartRateData{
 			BoardSurfaceId: model.GetLastBoardId(),
 			Time:           date,

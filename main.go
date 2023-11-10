@@ -1,8 +1,8 @@
 package main
 
 import (
-	"github.com/SystemEngineeringTeam/ProjectExercises2023-Backend/model"
-	"github.com/SystemEngineeringTeam/ProjectExercises2023-Backend/router"
+	"github.com/SystemEngineeringTeam/ProjectExercises2023-Backend/src/model"
+	"github.com/SystemEngineeringTeam/ProjectExercises2023-Backend/src/router"
 )
 
 // @title gin-swagger todos

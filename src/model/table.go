@@ -1,7 +1,7 @@
 package model
 
 import (
-	"github.com/SystemEngineeringTeam/ProjectExercises2023-Backend/lib"
+	"github.com/SystemEngineeringTeam/ProjectExercises2023-Backend/src/lib"
 )
 
 /**

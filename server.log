@@ -4,13 +4,13 @@
  - using env:	export GIN_MODE=release
  - using code:	gin.SetMode(gin.ReleaseMode)
 
-[GIN-debug] POST   /api/v1/start             --> github.com/SystemEngineeringTeam/ProjectExercises2023-Backend/controller.GameStart (4 handlers)
-[GIN-debug] POST   /api/v1/finish            --> github.com/SystemEngineeringTeam/ProjectExercises2023-Backend/controller.GameFinish (4 handlers)
-[GIN-debug] POST   /api/v1/set_bpm/:azimuth  --> github.com/SystemEngineeringTeam/ProjectExercises2023-Backend/controller.SendHeartRate (4 handlers)
-[GIN-debug] GET    /api/v1/get_bpm/:azimuth  --> github.com/SystemEngineeringTeam/ProjectExercises2023-Backend/controller.GetHeartRate (4 handlers)
-[GIN-debug] POST   /api/v1/set/user_status/:azimuth --> github.com/SystemEngineeringTeam/ProjectExercises2023-Backend/controller.SendEmotionStatus (4 handlers)
-[GIN-debug] GET    /api/v1/get/user_status/:azimuth --> github.com/SystemEngineeringTeam/ProjectExercises2023-Backend/controller.GetEmotionStatus (4 handlers)
-[GIN-debug] GET    /api/v1/get/image/:imageID --> github.com/SystemEngineeringTeam/ProjectExercises2023-Backend/controller.HandlerImage (4 handlers)
+[GIN-debug] POST   /api/v1/start             --> github.com/SystemEngineeringTeam/ProjectExercises2023-Backend/src/controller.GameStart (4 handlers)
+[GIN-debug] POST   /api/v1/finish            --> github.com/SystemEngineeringTeam/ProjectExercises2023-Backend/src/controller.GameFinish (4 handlers)
+[GIN-debug] POST   /api/v1/set_bpm/:azimuth  --> github.com/SystemEngineeringTeam/ProjectExercises2023-Backend/src/controller.SendHeartRate (4 handlers)
+[GIN-debug] GET    /api/v1/get_bpm/:azimuth  --> github.com/SystemEngineeringTeam/ProjectExercises2023-Backend/src/controller.GetHeartRate (4 handlers)
+[GIN-debug] POST   /api/v1/set/user_status/:azimuth --> github.com/SystemEngineeringTeam/ProjectExercises2023-Backend/src/controller.SendEmotionStatus (4 handlers)
+[GIN-debug] GET    /api/v1/get/user_status/:azimuth --> github.com/SystemEngineeringTeam/ProjectExercises2023-Backend/src/controller.GetEmotionStatus (4 handlers)
+[GIN-debug] GET    /api/v1/get/image/:imageID --> github.com/SystemEngineeringTeam/ProjectExercises2023-Backend/src/controller.HandlerImage (4 handlers)
 [GIN-debug] GET    /api/v1/swagger/*any      --> github.com/swaggo/gin-swagger.CustomWrapHandler.func1 (4 handlers)
 [GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
 Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.

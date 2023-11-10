@@ -5,7 +5,7 @@ import (
 	"os"
 	"time"
 
-	"github.com/SystemEngineeringTeam/ProjectExercises2023-Backend/controller"
+	"github.com/SystemEngineeringTeam/ProjectExercises2023-Backend/src/controller"
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 

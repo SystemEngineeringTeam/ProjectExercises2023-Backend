@@ -7,7 +7,7 @@ import (
 	"os"
 	"strconv"
 
-	"github.com/SystemEngineeringTeam/ProjectExercises2023-Backend/model"
+	"github.com/SystemEngineeringTeam/ProjectExercises2023-Backend/src/model"
 )
 
 func AllBeartOutput() {

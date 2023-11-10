@@ -15,8 +15,7 @@ $ go mod tidy
 
 # Goの実行
 ```bash
-$ cd ./src
-$ go run main.go
+$ go run ./src/main.go
 ```
 
 # swaggerの確認

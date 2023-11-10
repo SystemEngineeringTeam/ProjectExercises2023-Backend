@@ -1,10 +1,11 @@
 package controller
 
 import (
-	"github.com/SystemEngineeringTeam/ProjectExercises2023-Backend/model"
-	"github.com/gin-gonic/gin"
 	"strconv"
 	"time"
+
+	"github.com/SystemEngineeringTeam/ProjectExercises2023-Backend/src/model"
+	"github.com/gin-gonic/gin"
 )
 
 // GameStart ゲーム開始の処理
