@@ -32,6 +32,9 @@ $ python ./main.py 3
 下記URLを確認する
 URL: http://localhost:8080/api/v1/swagger/index.html
 
+# PostmanのURL
+https://project-exer-2023-sysken.postman.co/workspace/My-Workspace~700b9801-fec4-4f25-8b56-157aacad80cb/request/30829807-797c3f20-51f9-4d4e-a1e2-2b05991ce420
+
 ## 登録の仕方
 コメントを記載して、下記コマンドを実行する
 ```bash
