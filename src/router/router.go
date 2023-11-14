@@ -27,6 +27,7 @@ func Init() {
 		// アクセスを許可したいアクセス元
 		AllowOrigins: []string{
 			"http://localhost:3000",
+			"https://project-exercises2023-front-end-six.vercel.app",
 		},
 		// アクセスを許可したいHTTPメソッド(以下の例だとPUTやDELETEはアクセスできません)
 		AllowMethods: []string{
