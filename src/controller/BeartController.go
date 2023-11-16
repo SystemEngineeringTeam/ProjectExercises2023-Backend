@@ -47,11 +47,11 @@ func SendHeartRate(c *gin.Context) {
 
 	// データを返す
 	c.JSON(200, gin.H{
-		"BoardSurfaceId": req.BoardSurfaceId,
-		"HeartRateId":    req.HeartRateId,
-		"time":           req.Time,
-		"Azimuth":        req.Azimuth,
-		"HeartRate":      req.HeartRate,
+		"board_surface_id": req.BoardSurfaceId,
+		"id":               req.HeartRateId,
+		"time":             req.Time,
+		"azimuth":          req.Azimuth,
+		"bpm":              req.HeartRate,
 	})
 }
 
@@ -112,11 +112,11 @@ func SendEmotionStatus(c *gin.Context) {
 
 	// データを返す
 	c.JSON(200, gin.H{
-		"BoardSurfaceId": req.BoardSurfaceId,
-		"UsersStatusId":  req.UsersStatusId,
-		"time":           req.Time,
-		"Azimuth":        req.Azimuth,
-		"Status":         req.Status,
+		"board_surface_id": req.BoardSurfaceId,
+		"id":               req.UsersStatusId,
+		"time":             req.Time,
+		"azimuth":          req.Azimuth,
+		"status":           req.Status,
 	})
 }
 

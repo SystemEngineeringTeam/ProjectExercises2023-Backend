@@ -33,8 +33,8 @@ func GameStart(c *gin.Context) {
 
 	// データを返す
 	c.JSON(200, gin.H{
-		"StartTime":  req.StartTime,
-		"FinishTime": req.FinishTime,
+		"start_time":  req.StartTime,
+		"finish_time": req.FinishTime,
 	})
 }
 
@@ -62,7 +62,7 @@ func GameFinish(c *gin.Context) {
 
 	// データを返す
 	c.JSON(200, gin.H{
-		"FinishTime": latestBoardSurface.FinishTime,
-		"url":        "http://heartbeat.sysken.net/api/v1/get/image/" + strconv.Itoa(int(model.GetLastBoardId())),
+		"finish_time": latestBoardSurface.FinishTime,
+		"url":         "http://heartbeat.sysken.net/api/v1/get/image/" + strconv.Itoa(int(model.GetLastBoardId())),
 	})
 }
