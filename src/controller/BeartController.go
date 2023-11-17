@@ -3,6 +3,7 @@ package controller
 import (
 	"fmt"
 	"strconv"
+	"strings"
 	"time"
 
 	"github.com/SystemEngineeringTeam/ProjectExercises2023-Backend/src/model"
@@ -202,8 +203,8 @@ func CheckEmotionStatus(azimuth string) {
 	//emotions := CheckEmotion(heartRateData) // Goを使ったやり方
 	emotions := PythonGetSensing("north") // Pythonを使ったやり方
 
-	// \nを削除
-	emotions = emotions[:len(emotions)-1]
+	// \nを正規表現で削除
+	emotions = DeleteNewLine(emotions)
 
 	// 最新のBoardSurfaceに紐づくUsersStatusを更新
 	if len(heartRateData) == 2 {
@@ -215,4 +216,11 @@ func CheckEmotionStatus(azimuth string) {
 		}
 		model.CreateUsersStatus(&northUserStatus)
 	}
+}
+
+// DeleteNewLine \nを削除する
+func DeleteNewLine(emotions string) string {
+	// \nを正規表現で削除
+	emotions = strings.Replace(emotions, "\n", "", -1)
+	return emotions
 }
