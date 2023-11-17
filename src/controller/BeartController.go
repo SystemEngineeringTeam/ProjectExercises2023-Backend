@@ -199,7 +199,11 @@ func CheckEmotionStatus(azimuth string) {
 	heartRateData := model.GetLast2HeartRateData(azimuth)
 
 	// 最新のBoardSurfaceに紐づくUsersStatusを取得
-	emotions := CheckEmotion(heartRateData)
+	//emotions := CheckEmotion(heartRateData) // Goを使ったやり方
+	emotions := PythonGetSensing("north") // Pythonを使ったやり方
+
+	// \nを削除
+	emotions = emotions[:len(emotions)-1]
 
 	// 最新のBoardSurfaceに紐づくUsersStatusを更新
 	if len(heartRateData) == 2 {

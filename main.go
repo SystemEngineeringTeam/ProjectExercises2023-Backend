@@ -15,6 +15,11 @@ func main() {
 	// テーブル作成とDB接続
 	model.CreateAllTable()
 
+	//controller.AddCsvData("./output_csv/23/east_bpm.csv")
+	//controller.AddCsvData("./output_csv/23/west_bpm.csv")
+	//controller.AddCsvData("./output_csv/23/south_bpm.csv")
+	//controller.AddCsvData("./output_csv/23/north_bpm.csv")
+
 	// ルーティングの設定＋サーバー起動
 	router.Init()
 

@@ -1,9 +1,12 @@
 package controller
 
 import (
+	"bytes"
+	"context"
 	"fmt"
 	"log"
 	"os"
+	"os/exec"
 	"time"
 
 	"github.com/SystemEngineeringTeam/ProjectExercises2023-Backend/src/model"
@@ -59,9 +62,9 @@ func diff(list []model.BpmListModel) []model.BpmListModel {
 	return diffList
 }
 
-func AddCsvData() {
+func AddCsvData(path string) {
 	// Read file
-	f, err := os.Open("../test_csv/HartRate.csv")
+	f, err := os.Open(path)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -83,7 +86,7 @@ func AddCsvData() {
 		bpm := int(df.Subset(i).Elem(0, 1).Float())
 		fmt.Println(bpm)
 
-		time := int64(df.Subset(i).Elem(0, 0).Float() / 1000)
+		time := int64(df.Subset(i).Elem(0, 0).Float())
 		fmt.Println(time)
 
 		date := unixTime2Time(time)
@@ -102,4 +105,49 @@ func AddCsvData() {
 
 func unixTime2Time(unixTime int64) time.Time {
 	return time.Unix(unixTime, 0)
+}
+
+func PythonGetSensing(azimuth string) string {
+	fmt.Println(azimuth)
+
+	// 標準出力を受け取るためのバッファ
+	var stdoutBuf bytes.Buffer
+
+	// コンテキストを作成し、キャンセル関数を取得
+	ctx, cancel := context.WithCancel(context.Background())
+
+	// コンテキストを cmd に設定
+	out, err2 := exec.Command("pwd").Output()
+	if err2 != nil {
+		fmt.Println(err2)
+	}
+	fmt.Println(string(out))
+	cmd := exec.CommandContext(ctx, "python", "classification_python_src/main.py", azimuth)
+
+	// 標準出力をバッファに設定
+	cmd.Stdout = &stdoutBuf
+
+	// キャンセル関数を cmd.WaitDelay で設定
+	cmd.WaitDelay = 5 * time.Second
+	go func() {
+		time.Sleep(5 * time.Second) // もしキャンセルしない場合、5秒後にキャンセルを呼び出す
+		cancel()
+	}()
+
+	// 実行
+	err := cmd.Start()
+	if err != nil {
+		fmt.Println(err)
+		return ""
+	}
+
+	// cmd.Wait()でプロセスが終了するまで待つ
+	err = cmd.Wait()
+	if err != nil {
+		fmt.Println(err)
+	}
+
+	// 標準出力を文字列として取得
+	output := stdoutBuf.String()
+	return output
 }
