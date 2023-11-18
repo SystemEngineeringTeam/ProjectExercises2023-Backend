@@ -5,17 +5,18 @@ from sqlalchemy.pool import QueuePool
 class SqlHandler:
     def __init__(self):
         try:
-            self.conn = mysql.connector.connect(
-                user='root',  # ユーザー名
-                password='admin',  # パスワード
-                host='127.0.0.1',  # ホスト名(IPアドレス）
-                db='mahjong_sensing',
-                port='3309'
-            )
+
+            mysql_connection_env = {
+                "user" : 'root',  # ユーザー名
+                "password" : 'admin',  # パスワード
+                "host":'127.0.0.1',  # ホスト名(IPアドレス）
+                "db":'mahjong_sensing',
+                "port":'3309'
+            }
 
             # self.cur = self.conn.cursor()
 
-            self.cnxpool = QueuePool(lambda: self.conn, pool_size=10)
+            self.cnxpool = QueuePool(lambda: mysql.connector.connect(**mysql_connection_env), pool_size=10)
             # 接続成功ログ出力
             print('接続できました。')
 
