@@ -2,6 +2,7 @@ package controller
 
 import (
 	"fmt"
+	"github.com/SystemEngineeringTeam/ProjectExercises2023-Backend/src/api"
 	"strconv"
 	"strings"
 	"time"
@@ -201,7 +202,8 @@ func CheckEmotionStatus(azimuth string) {
 
 	// 最新のBoardSurfaceに紐づくUsersStatusを取得
 	//emotions := CheckEmotion(heartRateData) // Goを使ったやり方
-	emotions := PythonGetSensing("north") // Pythonを使ったやり方
+	//emotions := PythonGetSensing("north") // Pythonを使ったやり方
+	emotions := api.GetSensing(azimuth) // Pythonを使ったFlaskを使ったやり方
 
 	// \nを正規表現で削除
 	emotions = DeleteNewLine(emotions)

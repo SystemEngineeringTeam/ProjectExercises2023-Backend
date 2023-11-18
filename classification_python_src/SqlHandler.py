@@ -13,7 +13,7 @@ class SqlHandler:
 
             self.cur = self.conn.cursor()
             # 接続成功ログ出力
-            # print('接続できました。')
+            print('接続できました。')
 
         except:
             # print("DB接続失敗")
