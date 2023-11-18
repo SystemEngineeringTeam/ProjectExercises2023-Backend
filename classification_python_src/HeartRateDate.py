@@ -25,7 +25,6 @@ class HeartRateData():
             self.cur = cnx.cursor()
         except:
             print("DB接続失敗")
-            exit(1)
 
     def get_last_board_id(self) -> int:
         self.cur.execute("SELECT MAX(board_surface_id) FROM heart_rate_data")
