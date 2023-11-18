@@ -23,16 +23,21 @@ def get_sensing():
 
     #     dfに変換
     df = pd.DataFrame(getAllHeatRateData)
-    state = classification.main(df)
+    if len(df) > 2:
+        print(df)
 
-    # 状態を出力
-    print(state)
+        state = classification.main(df)
 
-    data = {
-        "state": state
-    }
+        # 状態を出力
+        print(state)
 
-    return jsonify(data)
+        data = {
+            "state": state
+        }
+
+        return jsonify(data)
+    else:
+        return jsonify({"state": "normal"})
 
 if __name__ == "__main__":
     app.run(port=10080, debug=True)

@@ -25,7 +25,8 @@ class HeartRateData():
 
     def get_last_board_id(self) -> int:
         self.cur.execute("SELECT MAX(board_surface_id) FROM heart_rate_data")
-        return self.cur.fetchone()[0]
+        result = self.cur.fetchall()  # 結果を取得
+        return result[0][0] if result else None
 
     def get_all_heart_rate_data(self, azimuth: Azimuth) -> list[HeartRateDataModel]:
         board_id = self.get_last_board_id()
