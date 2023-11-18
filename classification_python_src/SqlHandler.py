@@ -1,4 +1,6 @@
 import mysql.connector
+from sqlalchemy.pool import QueuePool
+
 
 class SqlHandler:
     def __init__(self):
@@ -11,7 +13,9 @@ class SqlHandler:
                 port='3309'
             )
 
-            self.cur = self.conn.cursor()
+            # self.cur = self.conn.cursor()
+
+            self.cnxpool = QueuePool(lambda: self.conn, pool_size=10)
             # 接続成功ログ出力
             print('接続できました。')
 

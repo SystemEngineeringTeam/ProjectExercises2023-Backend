@@ -15,7 +15,9 @@ def get_sensing():
     req = request.args
     azimuth = req.get("azimuth")
 
-    heartRateData = HRD.HeartRateData(sqlHandler.cur)
+    cnx = sqlHandler.cnxpool.connect()
+
+    heartRateData = HRD.HeartRateData(cnx)
     classification = CL.Classification()
 
     getAllHeatRateData = heartRateData.get_all_heart_rate_data(HRD.Azimuth(azimuth))
